@@ -1,5 +1,6 @@
 :root {
     --color-darkblue: #336699;
+    font-family: Helvetica, SansSerif;
 }
 
 * {
@@ -39,8 +40,14 @@ body, html {
     padding: 3%;
 }
 
+.calc-form label {
+    line-height: 1.5em;
+    font-size: 16px;
+}
+
 .calc-control {
-    font-size: 22px;
+    font-size: 16px;
+    margin: 0.5em;
 }
 
 .calc-control * {
@@ -48,16 +55,26 @@ body, html {
 }
 
 .calc-control label {
-    display: inline-block;
+    display: block;
 }
 
-.calc-control input, select {
-    width: 100%;
+.ctrl-container {
+
 }
 
 .input-ctrl {
-    width: 100%;
+    flex-grow: 1;
+    margin: 0;
+    border: 1px solid black;
+    padding: 4px 4px;
+    border-left: 0;
 }
+
+.select-ctrl {
+    flex-grow: 1;
+    padding: 4px 0;
+}
+
 
 .calc-button {
     display: block;
@@ -65,14 +82,25 @@ body, html {
     margin: 0 auto;
 }
 
+.ctrl-container {
+    display: flex;
+    width: 100%;
+}
+
 .icon {
-    background-color: var(--color-darkblue);
     display: inline-block;
     margin: 0;
+    padding: 5px 5px;
+    background-color: var(--color-darkblue);
 }
 
 .white {
     color: white;
+}
+
+.calc-button {
+    margin-top: 2em;
+    background-color: var(--color-darkblue);
 }
 
 
