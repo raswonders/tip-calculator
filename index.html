@@ -3,30 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <title>Tip calculator</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link href="css/all.css" rel="stylesheet"> <!--load all styles -->
 </head>
 <body>
-<h1>TIP CALCULATOR</h1>
-<form>
-    <p>
-        <label for="bill">How Much Was Your Bill ?</label>
-        <input type="number" id="bill" name="bill">
-    </p>
-    <p>
-        <label for="people">How Many People Sharing The Bill ?</label>
-        <input type="number" id="people" name="people">
-    </p>
-    <p>
-        <label for="service">How Was Your Service</label>
-        <select name="service" id="service">
-            <option value="">--Please choose an option--</option>
-            <option value="20">Great - 20%</option>
-            <option value="10">Good - 10%</option>
-            <option value="2">Bad - 2%</option>
-        </select>
-    </p>
-    <p>
-        <button type="submit">Calculate</button>
-    </p>
-</form>
+<div class="main-box">
+    <section class="calc-box">
+        <div class="calc-heading">
+            <h1>TIP CALCULATOR</h1>
+        </div>
+        <form class="calc-form">
+            <div class="calc-control">
+                <label for="bill">How Much Was Your Bill ?</label></div>
+                <div class="icon white">
+                    <i class="fas fa-user"></i>
+                </div>
+                <input class="input-ctrl" type="number" id="bill" name="bill">
+            </div>
+            <div class="calc-control">
+                <label for="people">How Many People Sharing The Bill ?</label>
+                <input type="number" id="people" name="people">
+            </div>
+            <div class="calc-control">
+                <label for="service">How Was Your Service</label>
+                <select name="service" id="service">
+                    <option value="">--Please choose an option--</option>
+                    <option value="20">Great - 20%</option>
+                    <option value="10">Good - 10%</option>
+                    <option value="2">Bad - 2%</option>
+                </select>
+            </div>
+            <div class="calc-control">
+                <button class="calc-button" type="submit">Calculate</button>
+            </div>
+        </form>
+    </section>
+</div>
 </body>
 </html>
