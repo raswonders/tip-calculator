@@ -1,5 +1,6 @@
 :root {
     --color-darkblue: #336699;
+    --mediumBlue: #6c91b7;
     font-family: Helvetica, SansSerif;
 }
 
@@ -47,7 +48,7 @@ body, html {
 
 .calc-control {
     font-size: 16px;
-    margin: 0.5em;
+    margin: 1em;
 }
 
 .calc-control * {
@@ -56,6 +57,7 @@ body, html {
 
 .calc-control label {
     display: block;
+    padding-bottom: 0.3em;
 }
 
 .ctrl-container {
@@ -101,6 +103,14 @@ body, html {
 .calc-button {
     margin-top: 2em;
     background-color: var(--color-darkblue);
+    padding: 5px;
+    font-weight: 900;
+    border: 0;
+    border-radius: 5px;
 }
 
+.calc-button:hover {
+    background-color: var(--mediumBlue);
+    cursor: pointer;
+}
 
