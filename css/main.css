@@ -126,10 +126,6 @@ body, html {
 .error-msg {
     width: fit-content;
     margin: auto;
-    padding: 0.1em;
+    padding: 5px 0 5px 0;
     color: var(--bloodyRed);
-}
-
-.vert-spacer {
-    height: 0.5em;
 }
