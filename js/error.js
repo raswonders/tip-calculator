@@ -6,12 +6,15 @@ function showErrorMsg(index) {
     showBlockElem(errorMsgs[index])
 }
 
-// shows errorBox element if any of its children are showing
-// function refreshErrorBox() {
-//     for (let element of errorMsgs) {
-//         if
-//     }
-// }
+// shows errorBox element if at least one child is visible
+function refreshErrorBox() {
+    for (let element of errorMsgs) {
+        if (! (element.style.display == "none")) {
+            errorBox.style.display = "block"
+            return
+        }
+    }
+}
 
 // turns off each error msg and errorBox as well
 function hideErrorMsgs() {
