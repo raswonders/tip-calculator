@@ -1,26 +1,28 @@
 // add listener for btn
-document.querySelector('calc-button').addEventListener('click', function computeTip(e) {
+document.querySelector('.calc-button').addEventListener('click', function computeTip(e) {
     if (formCheck()) {
 
     }
-
+    e.preventDefault()
 })
 
 
 //displays error messages and returns false if any error appears
 function formCheck() {
+    // delay after which errors disappear
+    var delay = 3000
     var elem = document.querySelector('#bill')
     var ret = true
 
-    if (! (elem.value >= 0)) {
-        // display appropriate err
+    if (elem.value == "" || ! (elem.value >= 0)) {
+        showErrorMsg(0)
         ret = false
     }
 
     elem = document.querySelector('#people')
 
-    if (! (elem.value.isInteger())) {
-        // display appropriate err
+    if (! (Number.isInteger(parseInt(elem.value)))) {
+        showErrorMsg(1)
         ret = false
     }
 
@@ -37,6 +39,7 @@ function formCheck() {
     }
 
     if (ret == false) {
-        // settimeout to hide all errors.
+        refreshErrorBox()
+        setTimeout(hideErrorMsgs, delay)
     }
 }
