@@ -5,25 +5,32 @@ document.querySelector('.calc-button').addEventListener('click', function comput
     var serviceVal = document.querySelector('#service').value
     var loaderGif = document.querySelector('.loader-gif')
 
+    clearResults()
+
     if (formCheck(billVal, peopleVal, serviceVal)) {
         hideErrorMsgs()
         showElem(loaderGif)
         setTimeout(function() {
             hideElem(loaderGif)
+            showResults(compute(billVal, peopleVal, serviceVal))
         }, 5000)
-        [tipVal, peopleVal, serviceVal] = compute(billVal, peopleVal, serviceVal))
-        displayResults()
     }
+
     e.preventDefault()
 })
 
-function displayResults(results) {
+function showResults(results) {
     var resultBox = document.querySelector('.result-box')
     var tip, people, service
-    [tip, people, service] = results
-    // TODO save paragraph string into innerhtml of resultBox
-
+    [tip, total, eachPerson] = results
+    resultBox.innerHTML = `<p>TIP: ${tip}<br>TOTAL: ${total}<br>Each: ${eachPerson}</p>`
 }
+
+function clearResults() {
+    var resultBox = document.querySelector('.result-box')
+    resultBox.innerHTML = ""
+}
+
 function compute(bill, people, service) {
     tip = (bill * service) / 100
     total = Number(bill) + tip
