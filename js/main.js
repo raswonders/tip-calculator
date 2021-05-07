@@ -3,14 +3,34 @@ document.querySelector('.calc-button').addEventListener('click', function comput
     var billVal = document.querySelector('#bill').value
     var peopleVal = document.querySelector('#people').value
     var serviceVal = document.querySelector('#service').value
+    var loaderGif = document.querySelector('.loader-gif')
 
     if (formCheck(billVal, peopleVal, serviceVal)) {
-
+        hideErrorMsgs()
+        showElem(loaderGif)
+        setTimeout(function() {
+            hideElem(loaderGif)
+        }, 5000)
+        [tipVal, peopleVal, serviceVal] = compute(billVal, peopleVal, serviceVal))
+        displayResults()
     }
     e.preventDefault()
 })
 
+function displayResults(results) {
+    var resultBox = document.querySelector('.result-box')
+    var tip, people, service
+    [tip, people, service] = results
+    // TODO save paragraph string into innerhtml of resultBox
 
+}
+function compute(bill, people, service) {
+    tip = (bill * service) / 100
+    total = Number(bill) + tip
+    each = total / people
+
+    return [tip.toFixed(2), total.toFixed(2), each.toFixed(2)]
+}
 //displays error messages and returns false if any error appears
 function formCheck(bill, people, service) {
     // delay after which errors disappear
@@ -36,4 +56,6 @@ function formCheck(bill, people, service) {
         refreshErrorBox()
         setTimeout(hideErrorMsgs, delay)
     }
+
+    return ret
 }
