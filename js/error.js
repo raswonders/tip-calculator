@@ -3,14 +3,14 @@ var errorMsgs = errorBox.children
 
 // turns on particular error msg
 function showErrorMsg(index) {
-    showBlockElem(errorMsgs[index])
+    showElem(errorMsgs[index])
 }
 
 // shows errorBox element if at least one child is visible
 function refreshErrorBox() {
-    for (let element of errorMsgs) {
-        if (! (element.style.display == "none")) {
-            errorBox.style.display = "block"
+    for (let msgElem of errorMsgs) {
+        if (elementVisible(msgElem)) {
+            showElem(errorBox)
             return
         }
     }
@@ -25,17 +25,13 @@ function hideErrorMsgs() {
 }
 
 function hideElem(el) {
-    el.style.display = "none"
+    el.classList.add('hide-elem')
 }
 
-function showBlockElem(el) {
-    el.style.display = "block"
+function showElem(el) {
+    el.classList.remove('hide-elem')
 }
 
 function elementVisible(el) {
-    if (el.style.display != "none") {
-        return true
-    } else {
-        return false
-    }
+    return !el.classList.contains('hide-elem')
 }

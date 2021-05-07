@@ -13,10 +13,10 @@
             <h1>TIP CALCULATOR</h1>
         </div>
         <form class="calc-form">
-            <div class="error-box">
-                <div class="error-msg">Bill cannot be empty or negative</div>
-                <div class="error-msg">Number of people sharing the bill must be a positive integer at least one</div>
-                <div class="error-msg">Service cannot stay empty</div>
+            <div class="error-box hide-elem">
+                <div class="error-msg hide-elem">Bill cannot be empty or negative</div>
+                <div class="error-msg hide-elem">Number of people sharing the bill must be a positive integer at least one</div>
+                <div class="error-msg hide-elem">Service cannot stay empty</div>
             </div>
             <div class="calc-control">
                 <label for="bill">How Much Was Your Bill ?</label>
@@ -49,6 +49,9 @@
             </div>
             <div class="calc-control">
                 <button class="calc-button white" type="submit">Calculate</button>
+            </div>
+            <div class="loader-box hide-elem">
+                <img class="loader-gif" src="img/loader200px.gif">
             </div>
         </form>
     </section>
