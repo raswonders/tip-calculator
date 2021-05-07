@@ -1,6 +1,10 @@
 // add listener for btn
 document.querySelector('.calc-button').addEventListener('click', function computeTip(e) {
-    if (formCheck()) {
+    var billVal = document.querySelector('#bill').value
+    var peopleVal = document.querySelector('#people').value
+    var serviceVal = document.querySelector('#service').value
+
+    if (formCheck(billVal, peopleVal, serviceVal)) {
 
     }
     e.preventDefault()
@@ -8,12 +12,9 @@ document.querySelector('.calc-button').addEventListener('click', function comput
 
 
 //displays error messages and returns false if any error appears
-function formCheck() {
+function formCheck(bill, people, service) {
     // delay after which errors disappear
     var delay = 3000
-    var bill = document.querySelector('#bill').value
-    var people = document.querySelector('#people').value
-    var service = document.querySelector('#service').value
     var ret = true
 
     if (bill == "" || !(bill >= 0)) {
