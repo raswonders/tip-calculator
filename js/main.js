@@ -1,42 +1,38 @@
 // add listener for btn
-document.querySelector('calc-button').addEventListener('click', function computeTip(e) {
+document.querySelector('.calc-button').addEventListener('click', function computeTip(e) {
     if (formCheck()) {
 
     }
-
+    e.preventDefault()
 })
 
 
 //displays error messages and returns false if any error appears
 function formCheck() {
-    var elem = document.querySelector('#bill')
+    // delay after which errors disappear
+    var delay = 3000
+    var bill = document.querySelector('#bill').value
+    var people = document.querySelector('#people').value
+    var service = document.querySelector('#service').value
     var ret = true
 
-    if (! (elem.value >= 0)) {
-        // display appropriate err
+    if (bill == "" || !(bill >= 0)) {
+        showErrorMsg(0)
         ret = false
     }
 
-    elem = document.querySelector('#people')
-
-    if (! (elem.value.isInteger())) {
-        // display appropriate err
+    if (people == "" || !(people >= 1) || (people % 1 != 0)) {
+        showErrorMsg(1)
         ret = false
     }
 
-    if (! (elem.value >= 1)) {
-        // display appropriate err
-        ret = false
-    }
-
-    elem = document.querySelector('#service')
-
-    if (! elem.value) {
-        // display appropriate err
+    if (!service) {
+        showErrorMsg(2)
         ret = false
     }
 
     if (ret == false) {
-        // settimeout to hide all errors.
+        refreshErrorBox()
+        setTimeout(hideErrorMsgs, delay)
     }
 }
