@@ -42,27 +42,27 @@ function compute(bill, people, service) {
 function formCheck(bill, people, service) {
     // delay after which errors disappear
     var delay = 3000
-    var ret = true
+    var errorsHidden = true
 
     if (bill == "" || !(bill >= 0)) {
         showErrorMsg(0)
-        ret = false
+        errorsHidden = false
     }
 
     if (people == "" || !(people >= 1) || (people % 1 != 0)) {
         showErrorMsg(1)
-        ret = false
+        errorsHidden = false
     }
 
     if (!service) {
         showErrorMsg(2)
-        ret = false
+        errorsHidden = false
     }
 
-    if (ret == false) {
+    if (errorsHidden == false) {
         refreshErrorBox()
         setTimeout(hideErrorMsgs, delay)
     }
 
-    return ret
+    return errorsHidden
 }
