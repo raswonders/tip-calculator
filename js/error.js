@@ -1,37 +1,38 @@
-var errorBox = document.querySelector('.error-box')
-var errorMsgs = errorBox.children
+{
+    const errorBox = document.querySelector('.error-box')
+    const errorMsgs = errorBox.children
 
-// turns on particular error msg
-function showErrorMsg(index) {
-    showElem(errorMsgs[index])
-}
+    function showErrorMsg(index) {
+        showElem(errorMsgs[index])
+    }
 
 // shows errorBox element if at least one child is visible
-function refreshErrorBox() {
-    for (let msgElem of errorMsgs) {
-        if (elementVisible(msgElem)) {
-            showElem(errorBox)
-            return
+    function refreshErrorBox() {
+        for (let msgElem of errorMsgs) {
+            if (elementVisible(msgElem)) {
+                showElem(errorBox)
+                return
+            }
         }
     }
-}
 
 // turns off each error msg and errorBox as well
-function hideErrorMsgs() {
-    for (let element of errorMsgs) {
-        hideElem(element)
+    function hideErrorMsgs() {
+        for (let element of errorMsgs) {
+            hideElem(element)
+        }
+        hideElem(errorBox)
     }
-    hideElem(errorBox)
-}
 
-function hideElem(el) {
-    el.classList.add('hide-elem')
-}
+    function hideElem(el) {
+        el.classList.add('hide-elem')
+    }
 
-function showElem(el) {
-    el.classList.remove('hide-elem')
-}
+    function showElem(el) {
+        el.classList.remove('hide-elem')
+    }
 
-function elementVisible(el) {
-    return !el.classList.contains('hide-elem')
+    function elementVisible(el) {
+        return !el.classList.contains('hide-elem')
+    }
 }
